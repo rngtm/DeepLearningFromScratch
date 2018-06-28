@@ -19,8 +19,8 @@ public class DataSet
             t = new Vector(0, 1)  // 正解 : falseに分類 (false && true は falseになる)
         },
         new Data {
-            x = new Vector(0, 0), // 入力 : (true, true)
-            t = new Vector(0, 1)  // 正解 : trueに分類 (true && true は trueになる)
+            x = new Vector(1, 1), // 入力 : (true, true)
+            t = new Vector(1, 0)  // 正解 : trueに分類 (true && true は trueになる)
         },
     };
 }
