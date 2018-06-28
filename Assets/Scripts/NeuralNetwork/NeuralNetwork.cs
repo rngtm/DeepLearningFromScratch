@@ -8,7 +8,7 @@ public class NeuralNetwork
     public Matrix W1 { get; set; } // 重み(入力層->隠れ層) (学習によってこの値に更新をかけ、損失値を減らしていく)
     public Matrix W2 { get; set; } // 重み(隠れ層→出力層) (学習によってこの値に更新をかけ、損失値を減らしていく)
     public Vector B1 { get; set; } // バイアス(隠れ層) (学習によってこの値に更新をかけ、損失値を減らしていく)
-    public Vector B2 { get; set; } // バイアス(隠れ層) (学習によってこの値に更新をかけ、損失値を減らしていく)
+    public Vector B2 { get; set; } // バイアス(出力層) (学習によってこの値に更新をかけ、損失値を減らしていく)
 
     /// <summary>
     /// ニューラルネットの初期化
@@ -20,15 +20,15 @@ public class NeuralNetwork
     {
         double initialWeight = 0.01;
 
-        W1 = Matrix.Random(inputSize, hiddenSize) * initialWeight; // inputSize X outputSize 行列の作成
-        B1 = Vector.Zero(hiddenSize); // バイアス
+        W1 = Matrix.Random(inputSize, hiddenSize) * initialWeight; //  重み(入力層->隠れ層)の行列の作成
+        B1 = Vector.Zero(hiddenSize); // バイアス(隠れ層)
 
-        W2 = Matrix.Random(hiddenSize, outputSize) * initialWeight; // hiddenSize X outputSize 行列の作成
-        B2 = Vector.Zero(outputSize); // バイアス
+        W2 = Matrix.Random(hiddenSize, outputSize) * initialWeight; //  重み(隠れ層->出力層)の行列の作成
+        B2 = Vector.Zero(outputSize); // バイアス(出力層)
     }
 
     /// <summary>
-    /// 各データセットに関してニューラルネットの出力値の計算
+    /// ニューラルネットの出力値の計算
     /// </summary>
     /// <param name="x">ニューラルネットへの入力データ</param>
     /// <returns>ニューラルネットからの出力</returns>
