@@ -84,7 +84,7 @@ public struct Vector
         s.Append("[");
         for (int i = 0; i < m_Size; i++)
         {
-            s.AppendFormat("{0:0.0000}, ", m_Values[i]);
+            s.AppendFormat("{0:0.000}, ", m_Values[i]);
         }
         s.Append("]");
         return s.ToString();

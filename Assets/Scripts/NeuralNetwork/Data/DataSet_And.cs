@@ -1,10 +1,10 @@
 ﻿/// <summary>
-/// 学習に使うデータセット
+/// And演算を定義したデータセット
 /// </summary>
-public class DataSet
+public class DataSet_And : DataSetBase
 {
-    // And演算をここで定義
-    public readonly Data[] Values = new Data[]
+    // 訓練用のデータ
+    public override Data[] GetTrainDatas() => new Data[]
     {
         new Data {
             x = new Vector(0, 0), // 入力 : (false, false)
@@ -22,5 +22,14 @@ public class DataSet
             x = new Vector(1, 1), // 入力 : (true, true)
             t = new Vector(1, 0)  // 正解 : trueに分類 (true && true は trueになる)
         },
+    };
+
+    // テスト用のデータ
+    public override Vector[] GetTestValues() => new Vector[]
+    {
+        new Vector (0, 0),
+        new Vector (1, 0),
+        new Vector (0, 1),
+        new Vector (1, 1),
     };
 }
